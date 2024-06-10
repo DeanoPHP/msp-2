@@ -4,6 +4,7 @@
 const global = {
     API_URL: 'https://api.themoviedb.org/3/',
     API_KEY: '644aa04d7d483c457999150e0657aa71',
+    page: new URLSearchParams(window.location.search).get('page'),
 }
 
 /**
@@ -59,11 +60,128 @@ const getCarouselImages = async () => {
 };
 
 /**
+ * Display popular movies. This will show when document loads
+ * https://api.themoviedb.org/3/endpoint
+ */
+const displayPopularMovies = async () => {
+    try {
+        const results = await fetchRequests('movie/popular');
+
+        $('.heading').html(`<h2>${global.type}</h2>`)
+        if (results.results.length > 0) {
+            results.results.forEach(movie => {
+                $('.display-results').append(`
+                    <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                        <a href='details.html?page=details&id=${movie.id}&category=movie'><img src='https://image.tmdb.org/t/p/w1280/${movie.poster_path}' class="d-block" alt='${movie.original_title}' /></a>                                             
+                    </div>
+                `);
+            });
+        } else {
+            $('.display-results').html('<h2>No results found for popular movies</h2>')
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+const showSearchForm = () => {
+    $('.fa-search').click(() => {
+        $('#pageBlur').fadeIn(500);
+        $('body').css('overflow', 'hidden')
+        $('#searchApiForm').css({
+            display: 'block',
+            opacity: 0
+        }).animate({
+            opacity: 1,
+            top: "30%"
+        }, {
+            duration: 1000,
+            easing: "easeInQuad",
+            complete: function () {
+                console.log("Search form animation complete");
+            }
+        });
+    });
+
+    $('#pageBlur').click(() => {
+        $('#pageBlur').fadeOut(1000)
+        $('#searchApiForm').fadeOut(1000)
+        $('body').css('overflow', 'auto')
+    })
+}
+
+const catagoryInput = () => {
+    $('#mySelect').change(() => {
+        const selectedOption = $('#mySelect option:selected').data('placeholder')
+        $('#nameInput').attr('placeholder', selectedOption)
+        global.type = selectedOption
+
+        if (global.type === 'Search popular movies') {
+            $('#nameInput').fadeOut(1000)
+        } else {
+            $('#nameInput').fadeIn(1000)
+        }
+    })
+
+    $('#mySelect').trigger('change');
+}
+
+const formSubmit = () => {
+    $('#submitButton').on('click', async (e) => {
+        e.preventDefault()
+
+        const type = global.type.split(' ')[1].toLowerCase()
+        const inputVal = document.getElementById('nameInput').value
+
+        if (type === 'popular') {
+            window.location.href = '/'
+        } else if (type === 'movie') {
+            window.location.href = `/?page=movies&params=${inputVal}`
+        } else if (type === 'tv') {
+            window.location.href = `/?page=tv&params=${inputVal}`
+        } else if (type === 'people') {
+            window.location.href = `/?page=actors&params=${inputVal}`
+        }
+    })
+}
+
+/**
  * Initialize the carousel
  */
 const init = () => {
-    getCarouselImages();
-}
+    switch (global.page) {
+        case 'movies':
+            displayMovieSearch();
+            showSearchForm();
+            catagoryInput();
+            formSubmit();
+            break;
+        case 'tv':
+            // @todo show tv
+            showSearchForm();
+            catagoryInput();
+            formSubmit();
+            break;
+        case 'actors':
+            // @todo display actors
+            showSearchForm();
+            catagoryInput();
+            formSubmit();
+            break;
+        case 'details':
+            // @todo show details
+            showSearchForm();
+            catagoryInput();
+            formSubmit();
+            break;
+        default:
+            getCarouselImages();
+            displayPopularMovies();
+            showSearchForm();
+            catagoryInput();
+            formSubmit();
+    }
+};
 
 $(document).ready(function () {
     init();

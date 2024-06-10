@@ -33,3 +33,39 @@ h2 {
 .carousel-item img {
     height: 400px;
 }
+
+/* -------------------------------------------Search Form */
+#pageBlur {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+    background-color: black;
+    display: none;
+    z-index: 20;
+}
+
+#searchApiForm {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+#search-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#search-form button {
+    width: 100%;
+}
+
+.showForm {
+    background-color: red;
+}
