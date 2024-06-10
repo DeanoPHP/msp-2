@@ -128,6 +128,25 @@ const displayTvSearched = async () => {
     }
 }
 
+/**
+ * display actor or actress searched
+ */
+const displayActorSearched = async () => {
+    try {
+        const results = await fetchRequests(`search/person?query=${global.params}&include_adult=false&language=en-US&page=1`)
+        $('.heading').html(`<h2>Actor/Actress Results</h2>`)
+        results.results.forEach(actor => {
+            $('.display-results').append(`
+                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                    <a href='details.html?page=details&id=${actor.id}&category=person'><img src='${actor.profile_path ? `https://image.tmdb.org/t/p/w1280/${actor.profile_path}` : 'assets/images/no-photo-icon.png' }' class="d-block" alt='${actor.name}' /></a>                                             
+                </div>
+            `);
+        });
+        console.log(results)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 const showSearchForm = () => {
     $('.fa-search').click(() => {
@@ -208,7 +227,7 @@ const init = () => {
             formSubmit();
             break;
         case 'actors':
-            // @todo display actors
+            displayActorSearched();
             showSearchForm();
             catagoryInput();
             formSubmit();
