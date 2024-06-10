@@ -5,6 +5,10 @@ const global = {
     API_URL: 'https://api.themoviedb.org/3/',
     API_KEY: '644aa04d7d483c457999150e0657aa71',
     page: new URLSearchParams(window.location.search).get('page'),
+    params: new URLSearchParams(window.location.search).get('params'),
+    id: new URLSearchParams(window.location.search).get('id'),
+    category: new URLSearchParams(window.location.search).get('category'),
+    type: '',
 }
 
 /**
@@ -84,6 +88,26 @@ const displayPopularMovies = async () => {
     }
 }
 
+/**
+ * function to display searched movie
+ */
+const displayMovieSearch = async () => {
+    try {
+        const results = await fetchRequests(`search/movie?query=${global.params}&include_adult=false&language=en-US&page=1`)
+        $('.heading').html(`<h2>${global.type}</h2>`)
+        results.results.forEach(movie => {
+            $('.display-results').append(`
+                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                    <a href='details.html?page=details&id=${movie.id}&category=movie'><img src='${movie.poster_path ? `https://image.tmdb.org/t/p/w1280/${movie.poster_path}` : 'assets/images/No-Image.png'}' class="d-block" alt='${movie.original_title}' /></a>                                             
+                </div>
+            `);
+        });
+        console.log(results)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 const showSearchForm = () => {
     $('.fa-search').click(() => {
         $('#pageBlur').fadeIn(500);
@@ -157,7 +181,7 @@ const init = () => {
             formSubmit();
             break;
         case 'tv':
-            // @todo show tv
+            // @todo display tv searched
             showSearchForm();
             catagoryInput();
             formSubmit();
