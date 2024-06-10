@@ -1,7 +1,4 @@
 {
-  "devDependencies": {
-    "jest": "^29.7.0"
-  },
   "name": "msp-2",
   "description": "![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)",
   "version": "1.0.0",
@@ -197,6 +194,9 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 15px 15px;
+}
+
+
+/* -------------------------------------------Navigation Bar */
+.navbar-brand {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    color: red;
+    font-weight: bolder;
+}
+
+.navbar-nav li {
+    margin-left: 40px;
+}
+
+.fa-search {
+    margin-right: 20px;
+}
+
+/* -------------------------------------------Carousel */
+.carousel-item.active {
+    right: 0px;
+}
+
+.carousel-item img {
+    height: 400px;
+}
