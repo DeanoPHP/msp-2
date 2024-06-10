@@ -108,6 +108,27 @@ const displayMovieSearch = async () => {
     }
 }
 
+/**
+ * Display tv series and shows
+ */
+const displayTvSearched = async () => {
+    try {
+        const results = await fetchRequests(`search/tv?query=${global.params}&include_adult=false&language=en-US&page=1`)
+        $('.heading').html(`<h2>${global.type}</h2>`)
+        results.results.forEach(tv => {
+            $('.display-results').append(`
+                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                    <a href='details.html?page=details&id=${tv.id}&category=tv'><img src='https://image.tmdb.org/t/p/w1280/${tv.poster_path}' class="d-block" alt='${tv.original_title}' /></a>                                             
+                </div>
+            `);
+        });
+        console.log(results)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+
 const showSearchForm = () => {
     $('.fa-search').click(() => {
         $('#pageBlur').fadeIn(500);
@@ -181,7 +202,7 @@ const init = () => {
             formSubmit();
             break;
         case 'tv':
-            // @todo display tv searched
+            displayMovieSearch();
             showSearchForm();
             catagoryInput();
             formSubmit();
