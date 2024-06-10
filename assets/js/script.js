@@ -148,6 +148,69 @@ const displayActorSearched = async () => {
     }
 }
 
+/**
+ * display the selected movie, tv show, or actor for more information
+ */
+const showDetails = async () => {
+    try {
+        const res = await fetchRequests(`${global.category}/${global.id}`)
+
+        if (global.category === 'movie') {
+            $('.details-results').append(`
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
+                        </div>
+                        <div class="col-sm-12 col-md-6 p-3">
+                            <h1>${res.title}</h1>
+                            <p>${res.overview}</p> 
+                            <p>Release date: ${res.release_date}</p>
+                            <a href="${res.homepage}" target="_blank">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            `)
+        } else if (global.category === 'tv') {
+            $('.details-results').append(`
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
+                        </div>
+                        <div class="col-sm-12 col-md-6 p-3">
+                            <h1>${res.name}</h1>
+                            <p>${res.overview}</p> 
+                            <p>Release date: ${res.release_date}</p>
+                            <a href="${res.homepage}" target="_blank">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            `)
+        } else {
+            $('.details-results').append(`
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.profile_path}" alt="screen details">
+                        </div>
+                        <div class="col-sm-12 col-md-6 p-3">
+                            <h1>${res.name}</h1>
+                            <p>${res.biography}</p> 
+                            <p>Birthday: ${res.birthday}</p>
+                            <a href="${res.homepage}" target="_blank">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            `)
+        }
+
+        console.log(res)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 const showSearchForm = () => {
     $('.fa-search').click(() => {
         $('#pageBlur').fadeIn(500);
@@ -233,7 +296,7 @@ const init = () => {
             formSubmit();
             break;
         case 'details':
-            // @todo show details
+            showDetails();
             showSearchForm();
             catagoryInput();
             formSubmit();
