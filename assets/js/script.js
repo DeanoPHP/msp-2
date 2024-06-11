@@ -9,7 +9,7 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io'
+    SITE_URL: 'https://deanophp.github.io/msp-2/'
 }
 
 /**
