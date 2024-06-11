@@ -9,6 +9,7 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
+    SITE_URL: 'https://deanophp.github.io/'
 }
 
 /**
@@ -261,13 +262,13 @@ const formSubmit = () => {
         const inputVal = document.getElementById('nameInput').value
 
         if (type === 'popular') {
-            window.location.href = '/'
+            window.location.href = `${global.SITE_URL}/`
         } else if (type === 'movie') {
-            window.location.href = `/?page=movies&params=${inputVal}`
+            window.location.href = `${global.SITE_URL}/?page=movies&params=${inputVal}`
         } else if (type === 'tv') {
-            window.location.href = `/?page=tv&params=${inputVal}`
+            window.location.href = `${global.SITE_URL}/?page=tv&params=${inputVal}`
         } else if (type === 'people') {
-            window.location.href = `/?page=actors&params=${inputVal}`
+            window.location.href = `${global.SITE_URL}/?page=actors&params=${inputVal}`
         }
     })
 }
