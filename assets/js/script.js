@@ -9,7 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/'
+    // SITE_URL: 'https://deanophp.github.io/msp-2/',
+    SITE_URL: '/',
 }
 
 /**
@@ -76,7 +77,7 @@ const displayDataFetched = async () => {
             results.results.forEach(item => {
                 $('.display-results').append(`
                     <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                        <a href='details.html?page=details&id=${item.id}&category=${global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${global.page !== 'actors' ? item.poster_path : item.profile_path}' class="d-block" alt='${item.original_title}'/><a>                                             
+                        <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${global.page !== 'actors' ? item.poster_path : item.profile_path}' class="d-block" alt='${item.original_title}'/><a>                                             
                     </div>
                 `);
             });
@@ -252,6 +253,7 @@ const formSubmit = () => {
  * required functionality
  */
 const init = () => {
+    console.log(global.page)
     switch (global.page) {
         case 'movies':
             displayDataFetched()
