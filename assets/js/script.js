@@ -9,8 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    // SITE_URL: 'https://deanophp.github.io/msp-2/',
-    SITE_URL: '/',
+    SITE_URL: 'https://deanophp.github.io/msp-2/',
+    // SITE_URL: '/',
 }
 
 /**
@@ -253,7 +253,6 @@ const formSubmit = () => {
  * required functionality
  */
 const init = () => {
-    console.log(global.page)
     switch (global.page) {
         case 'movies':
             displayDataFetched()
