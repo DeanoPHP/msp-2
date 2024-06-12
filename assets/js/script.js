@@ -65,20 +65,18 @@ const getCarouselImages = async () => {
 };
 
 /**
- * Display popular movies. This will show when document loads
- * https://api.themoviedb.org/3/endpoint
+ * Display the fetched data
  */
-const displayPopularMovies = async () => {
+const displayDataFetched = async () => {
     try {
-        const results = await fetchRequests('movie/popular');
-        // const results = await fetchRequests(getEndpoint);
+        const results = await fetchRequests(getEndpoint());
 
         $('.heading').html(`<h2>${global.type}</h2>`)
         if (results.results.length > 0) {
-            results.results.forEach(movie => {
+            results.results.forEach(item => {
                 $('.display-results').append(`
                     <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                        <a href='details.html?page=details&id=${movie.id}&category=movie'><img src='https://image.tmdb.org/t/p/w1280/${movie.poster_path}' class="d-block" alt='${movie.original_title}' /></a>                                             
+                        <a href='details.html?page=details&id=${item.id}&category=${global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${global.page !== 'actors' ? item.poster_path : item.profile_path}' class="d-block" alt='${item.original_title}'/><a>                                             
                     </div>
                 `);
             });
@@ -91,62 +89,17 @@ const displayPopularMovies = async () => {
 }
 
 /**
- * function to display searched movie
+ * Get the endpoint by checking the global.page
  */
-const displayMovieSearch = async () => {
-    try {
-        const results = await fetchRequests(`search/movie?query=${global.params}&include_adult=false&language=en-US&page=1`)
-        $('.heading').html(`<h2>${global.type}</h2>`)
-        results.results.forEach(movie => {
-            $('.display-results').append(`
-                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                    <a href='details.html?page=details&id=${movie.id}&category=movie'><img src='${movie.poster_path ? `https://image.tmdb.org/t/p/w1280/${movie.poster_path}` : 'assets/images/No-Image.png'}' class="d-block" alt='${movie.original_title}' /></a>                                             
-                </div>
-            `);
-        });
-        console.log(results)
-    } catch (error) {
-        console.log(error.message)
-    }
-}
-
-/**
- * Display tv series and shows
- */
-const displayTvSearched = async () => {
-    try {
-        const results = await fetchRequests(`search/tv?query=${global.params}&include_adult=false&language=en-US&page=1`)
-        $('.heading').html(`<h2>${global.type}</h2>`)
-        results.results.forEach(tv => {
-            $('.display-results').append(`
-                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                    <a href='details.html?page=details&id=${tv.id}&category=tv'><img src='https://image.tmdb.org/t/p/w1280/${tv.poster_path}' class="d-block" alt='${tv.original_title}' /></a>                                             
-                </div>
-            `);
-        });
-        console.log(results)
-    } catch (error) {
-        console.log(error.message)
-    }
-}
-
-/**
- * display actor or actress searched
- */
-const displayActorSearched = async () => {
-    try {
-        const results = await fetchRequests(`search/person?query=${global.params}&include_adult=false&language=en-US&page=1`)
-        $('.heading').html(`<h2>Actor/Actress Results</h2>`)
-        results.results.forEach(actor => {
-            $('.display-results').append(`
-                <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                    <a href='details.html?page=details&id=${actor.id}&category=person'><img src='${actor.profile_path ? `https://image.tmdb.org/t/p/w1280/${actor.profile_path}` : 'assets/images/no-photo-icon.png' }' class="d-block" alt='${actor.name}' /></a>                                             
-                </div>
-            `);
-        });
-        console.log(results)
-    } catch (error) {
-        console.log(error.message)
+const getEndpoint = () => {
+    if (global.page === null) {
+        return 'movie/popular';
+    } else if (global.page === 'movies') {
+        return `search/movie?query=${global.params}&include_adult=false&language=en-US&page=1`;
+    } else if (global.page === 'tv') {
+        return `search/tv?query=${global.params}&include_adult=false&language=en-US&page=1`;
+    } else {
+        return `search/person?query=${global.params}&include_adult=false&language=en-US&page=1`;
     }
 }
 
@@ -275,24 +228,24 @@ const formSubmit = () => {
 }
 
 /**
- * Initialize the carousel
+ * Initialize all functions withing a page coming from global.page
  */
 const init = () => {
     switch (global.page) {
         case 'movies':
-            displayMovieSearch();
+            displayDataFetched()
             showSearchForm();
             catagoryInput();
             formSubmit();
             break;
         case 'tv':
-            displayMovieSearch();
+            displayDataFetched()
             showSearchForm();
             catagoryInput();
             formSubmit();
             break;
         case 'actors':
-            displayActorSearched();
+            displayDataFetched()
             showSearchForm();
             catagoryInput();
             formSubmit();
@@ -305,10 +258,11 @@ const init = () => {
             break;
         default:
             getCarouselImages();
-            displayPopularMovies();
+            displayDataFetched();
             showSearchForm();
             catagoryInput();
             formSubmit();
+            getEndpoint()
     }
 };
 
