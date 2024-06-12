@@ -71,6 +71,7 @@ const getCarouselImages = async () => {
 const displayPopularMovies = async () => {
     try {
         const results = await fetchRequests('movie/popular');
+        // const results = await fetchRequests(getEndpoint);
 
         $('.heading').html(`<h2>${global.type}</h2>`)
         if (results.results.length > 0) {
