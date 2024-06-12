@@ -30,7 +30,7 @@ const fetchRequests = async (request) => {
 }
 
 /**
- * Get 3 random images
+ * Get 3 random images to use in our carousel
  */
 const getThreeRandomImages = (movies, num) => {
     let shuffled = movies.sort(() => 0.5 - Math.random());
@@ -166,6 +166,9 @@ const showDetails = async () => {
     }
 }
 
+/**
+ * This function simply displays the form using a click event
+ */
 const showSearchForm = () => {
     $('.fa-search').click(() => {
         $('#pageBlur').fadeIn(500);
@@ -185,6 +188,7 @@ const showSearchForm = () => {
         });
     });
 
+    // Allowing us to click outside the form to deactivate the pageBlur
     $('#pageBlur').click(() => {
         $('#pageBlur').fadeOut(1000)
         $('#searchApiForm').fadeOut(1000)
@@ -192,6 +196,13 @@ const showSearchForm = () => {
     })
 }
 
+/**
+ * This is a simple function that gets the select option and stores it 
+ * as a placeholder in the input field.
+ * If the global.type === 'search popular movies' then we do not need to 
+ * view the input so we are selecting the id #nameInput and using the jQuery
+ * fadeOut else fadeIn
+ */
 const catagoryInput = () => {
     $('#mySelect').change(() => {
         const selectedOption = $('#mySelect option:selected').data('placeholder')
@@ -208,6 +219,14 @@ const catagoryInput = () => {
     $('#mySelect').trigger('change');
 }
 
+/**
+ * Using an on click event so when the icon is clicked we will prevent the 
+ * default behaviour
+ * We store the either movies, tv, person inside a veriable names type
+ * Next we are getting the value types into the input field
+ * Lastly we are directing the user to a page with the query parameters 
+ * ?page=nameofpage&params=whateverisintheinput 
+ */
 const formSubmit = () => {
     $('#submitButton').on('click', async (e) => {
         e.preventDefault()
@@ -228,7 +247,9 @@ const formSubmit = () => {
 }
 
 /**
- * Initialize all functions withing a page coming from global.page
+ * Initialize all functions withing a page when on a specific page
+ * I am using the global.page to get the desired page and then load 
+ * required functionality
  */
 const init = () => {
     switch (global.page) {
@@ -266,6 +287,7 @@ const init = () => {
     }
 };
 
+// Using jquery to load all code once the document is ready
 $(document).ready(function () {
     init();
 });
