@@ -1,114 +1,275 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ScreenQuest
 
-Welcome Dean Lark,
+![Responsive](assets/images/responsive.png)
+[Click here to view the live website](https://deanophp.github.io/MSP-1/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Overview
+Movie Explorer is an interactive web application that allows users to search and discover popular movies, TV shows, and actors/actresses. With a user-friendly interface, the application provides a seamless experience where users can click on any item to view detailed information about it. This includes descriptions, ratings, cast lists, and more.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 28, 2024**
+## User Experience (UX)
 
-## Gitpod Reminders
+## User Stories
+This section outlines the user stories that guided the development of our project. User stories help us focus on the user’s perspective and needs, ensuring that the features developed are practical and beneficial for the user.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### As a visitor
+1. **As a visitor** I want to be able to easily navigate the website so I can find information easily.
+2. **As a visitor** I want the website to be visually appealing and professionally styled so that I have a positive impression of the website.
+3. **As a visitor** I want browse popular movies so I can discover new movies to watch.
+4. **As a visitor** I want browse popular tv shows so I can discover new tv shows to watch.
+5. **As a visitor** I want to browse actors or actresses
+6. **As a visitor** I want to be able to click on movie, tv show or actor/actress to get more details
+7. **As a visitor** I would like to use any of my devices to view the website.
 
-`python3 -m http.server`
+### As a gym owner 
+1. **As a gym owner**, I want to feature high-quality images and detailed descriptions of our movies, tv shows, and actors.
 
-A blue button should appear to click: _Make Public_,
+2. **As a gym owner**, I want to display the data clearly.
 
-Another blue button should appear to click: _Open Browser_.
+3. **As a gym owner**, I want to give the user clear navigation.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### As a returning user 
+1. **As a returning user**, I want to quickly 
 
-A blue button should appear to click: _Make Public_,
+- **Visually Appealing**
+  - **Bootstrap Navbar with Hamburger Menu**: We utilized Bootstrap's responsive navbar component to ensure easy navigation across all device sizes. The hamburger menu on smaller screens allows for a clean and uncluttered interface while providing full navigation capability.
 
-Another blue button should appear to click: _Open Browser_.
+  - **Hero Image**: A large, high-quality hero image greets users upon arrival, setting a welcoming and professional tone. This visual centerpiece captures attention and directly relates to the core theme of the website.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  - **Large, Prominent Buttons**: To enhance user interaction, we designed large buttons that stand out against the background. These are strategically placed to guide users naturally through the workflow, increasing usability and accessibility.
+ 
+  - **Modals for Interaction**: For interactions that require more detail, such as forms or additional information, we implemented modals. This keeps the user on the same page, reducing load times and maintaining context, which is particularly beneficial for mobile users.
 
-To log into the Heroku toolbelt CLI:
+- **Contact Form**:
+We provide users with a convenient way to contact the gym through our easy-to-use contact form.  
+![Contact Form](assets/images/contact-form.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- **Map of the Gym**:
+A Google Maps iframe is integrated to clearly show the gym's location, making it easier for users to find us.  
+![Gym Location](assets/images/map.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+- **Meet the Team**:
+We've introduced a section dedicated to our gym staff, allowing users to learn more about the team that makes our gym special.  
+![Gym Staff](assets/images/the-team.png)
 
-------
+## Future features
+- Login in and Register functionality
+- Let a logged in user leave a review
+- Let the user save their favourite movies, tv shows
 
-## Release History
+## Skeleton
+Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
+<br><br>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+| Desktop                                   | Tablet                                  | Mobile                                  |
+| ----------------------------------------- | --------------------------------------- | --------------------------------------- |
+| ![Desktop](assets/wireframes/desktop.png) | ![Tablet](assets/wireframes/tablet.png) | ![Mobile](assets/wireframes/mobile.png) |
 
-**May 28 2024:** Fix Mongo and Links installs
+## Technologies and Tools
+- HTML/CSS - For stucturing and design
+- Bootstrap - Framework for designing responsive and 
+mobile-first web pages.
+- JavaScript 
+- jQuery
+- themoviedb API
+- Animate.css - For visual effects
+- FontAwesome - For icons
+- Google Fonts - For fonts
+- Gitpod
+- Github
+- Visual Studio
 
-**April 26 2024:** Update node version to 16
+## Design Overview
 
-**September 20 2023:** Update Python version to 3.9.17.
+Add some text here about the design 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Color Palette
+  - Gold: #C7A64A - Used for h1 tags and logo;
+  - Dark shade of yellow-green #5C501F - Used for sub-headings;
+  - Light grey: #fafafa - Used for links;
+  - very light grey: #eeeeee - used for body;
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Font Usage
+Our project utilizes a combination of FontAwesome, Roboto, and Anonymous Pro to ensure clear readability, aesthetic appeal, and functional design across all elements of our website.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Fonts Details
+- **Google Fonts**: Used primarily for icons across the website. FontAwesome provides scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- **Roboto**: This is the primary typeface used for text elements on the website. Designed for readability, Roboto offers a modern, neutral look with a wide range of weights and styles.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- **Anonymous Pro**: Employed mainly in code snippets and data displays, Anonymous Pro is a monospace font that offers excellent clarity and readability in technical sections of the website.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Font Integration
+To integrate and use these fonts in your development environment, follow these steps:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- **fonts.google.com**:
+  ```css
+    /* Importing Roboto font with all weights and styles */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    /* Importing Anonymous Pro font with specific weights and styles */
+    @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- [Link for Roboto](https://fonts.google.com/?query=roboto)
+- [Link for Anonymous Pro](https://fonts.google.com/?query=anonymous+pro)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Anonymous Pro and Roboto make a highly functional pairing in digital design, combining clarity with versatility. Anonymous Pro, a monospaced font, offers exceptional readability for code snippets and data, ensuring that each character is distinctly spaced and easy to differentiate. This makes it ideal for technical contexts where precision in text presentation is crucial. Roboto, on the other hand, is a sans-serif font known for its clean lines and friendly appearance, making it suitable for more general text such as paragraphs, headings, and user interfaces. Together, these fonts provide a balanced aesthetic: Roboto enhances the visual appeal and ease of reading for narrative text, while Anonymous Pro ensures technical sections are approachable and clear. This combination is particularly effective in environments like technical blogs, programming interfaces, or any application where text clarity and user comfort are paramount.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Implementation
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+Here is an example of how to apply colours and fonts:
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+```css
+:root {
+    --link-font-color: #fafafa;
+    --gold-color: #C7A64A;
+    --sub-heading-color: #5C501F;
+    --font-family-body: "Roboto", sans-serif;
+    --h1-font-family: "Anonymous Pro", sans-serif;
+}
 
-------
+.navbar-brand {
+    font-family: var(--h1-font-family);
+    color: var(--gold-color);
+}
+```
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+## Assistance from AI
+During the development of this project, AI-powered tools were utilized to assist with including the design and implementation of a transparent navbar using Bootstrap. This assistance helped to optimize the solution and implement best practices in web development.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Specific AI Contributions
+- **3 random image for carousel** I used AI to help me get three random images from themoviedb API
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+const getThreeRandomImages = (movies, num) => {
+    let shuffled = movies.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+};
 ```
 
-**Anything more?**
+## Fix
+Document here any fixed I need
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Testing
+[w3c Markup Validation](https://validator.w3.org/)
 
----
+index.html
+![index.html](./assets/images/testing/index.png)
 
-Happy coding!
+form-submitted.html
+![form-submitted.html](./assets/images/testing/form-submitted.png)
+
+style.css
+![style.css](./assets/images/testing/css.png)
+
+## Functional Testing
+| Action | Expected Behaviour | Pass/Fail |
+| ------ | ------------------ | --------- | 
+| Initial page load | I expect the browser to load my website and be on the index section | Pass |
+| Home link | The browser should navigate to and display the 'Home' section. | Pass |
+| About link | The browser should navigate to and display the 'About' section. | Pass |
+| The Gym link | The browser should navigate to and display the 'Gym' section. | Pass |
+| Team link | The browser should navigate to and display the 'Team' section. | Pass |
+| Contact link | The browser should navigate to and display the 'Contact' section. | Pass | 
+| Test for hero section Button | Upon clicking the button, the Bootstrap modal should be displayed, including all its content and with the correct styling. | Pass |
+| Test for team section Button | Upon clicking the button, the Bootstrap modal should be displayed, including all its content and with the correct styling. | Pass |
+| Test for Contact Section Button | Implemented functionality test to verify that clicking the button in the contact section redirects to the "form-submitted.html" page when all form inputs are filled out as expected. | Pass |
+| Test Full Name required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
+| Test Email required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
+| Test Tel required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
+| Test Message required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
+| Implement Iframe map functionality | Added functionality test to ensure that the iframe map in the contact section functions correctly, displaying the map as expected and allowing interaction with it. | Pass |
+
+## Lighthouse report
+<hr>
+
+## Deployment
+<hr>
+
+1. **Design the Website on GitPod**:
+   - Open GitPod and create a new workspace.
+   - Design and develop your website within the GitPod environment.
+
+2. **Push the Website to GitHub**:
+   - Initialize a Git repository in your GitPod workspace:
+     ```sh
+     git init
+     ```
+   - Add all the project files:
+     ```sh
+     git add .
+     ```
+   - Commit the changes with a meaningful message:
+     ```sh
+     git commit -m "Initial commit"
+     ```
+   - Add your GitHub repository as a remote:
+     ```sh
+     git remote add origin <your-github-repo-url>
+     ```
+   - Push the changes to GitHub:
+     ```sh
+     git push -u origin main
+     ```
+
+## Cloning this repository
+
+1. Open your prefered terminal.
+
+2. Navigate to the directory where you want the cloned directory to be added.
+
+3. Run the following command 
+```sh
+git clone https://github.com/DeanoPHP/MSP-1.git
+```
+
+4. After cloning, navigate into the directory
+```sh
+ cd your-repository-name
+```
+
+5. Now you can start working on the project on your local machine.
+
+## Forking this repository
+1. Go to the repository on GitHub.
+
+2. In the top-right corner of the page, click the "Fork" button.
+
+3. Once the repository has been forked, you will be taken to your copy of the repository in your GitHub account.
+
+4. Clone your forked repository to your local machine:
+```sh
+git clone https://github.com/DeanoPHP/MSP-1.git
+```
+
+5. Navigate to the cloned directory
+```sh
+  cd your-repository-name
+```
+
+6. You can now make changes to your fork and submit pull requests to the original repository.
+
+## Deployment Steps
+<hr>
+
+**Deploy to GitHub Pages**:
+   - Go to your GitHub repository on GitHub.
+   - Navigate to the repository settings.
+   - Scroll down to the "GitHub Pages" section.
+   - Under "Source", select the branch you want to deploy (usually `main` or `gh-pages`).
+   - Click "Save".
+
+Your website should now be live on GitHub Pages. You can access it via the URL provided in the GitHub Pages section of your repository settings.
+
+## Credits and Acknowledgments
+<hr>
+I would like to express my heartfelt gratitude to my mentor for his invaluable guidance and advice throughout this project. 
+
+Additionally, I extend my sincere thanks to my tutors, especially Miguel Ortega Legorreta, for their exceptional teaching and encouragement. Your dedication and expertise have greatly contributed to my learning journey.
+
+
+
+
+
+
