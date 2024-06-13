@@ -1,6 +1,6 @@
 # ScreenQuest
 
-![Responsive](assets/images/responsive.png)
+![Responsive](assets/images/amIResponsive.png)
 [Click here to view the live website](https://deanophp.github.io/MSP-1/)
 
 ## Overview
