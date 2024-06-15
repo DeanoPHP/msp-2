@@ -1,5 +1,5 @@
 // Import the necessary functions and global object from the script
-const { fetchRequests, getThreeRandomImages, getEndpoint, global } = require('../js/script');
+const { fetchRequests, getThreeRandomImages, getCarouselImages, getEndpoint, global } = require('../js/script');
 
 // Mock browser-specific globals before all tests
 beforeAll(() => {
@@ -41,7 +41,10 @@ describe('Global object contains the correct keys', () => {
     });
 });
 
-
+/**
+ * Testing for the fetchRequests function
+ * We have installed jest-fetch-moch
+ */
 beforeAll(() => {
     // Mock the global object
     global.global = {
@@ -96,3 +99,61 @@ describe('fetchRequests', () => {
         }
     });
 });
+
+/**
+ * Testing the getThreeRandonImages function
+ */
+describe('getThreeRandomImages', () => {
+    test('returns the correct number of random images', () => {
+        const movies = [
+            { id: 1, title: 'Movie 1' },
+            { id: 2, title: 'Movie 2' },
+            { id: 3, title: 'Movie 3' },
+            { id: 4, title: 'Movie 4' },
+            { id: 5, title: 'Movie 5' }
+        ];
+
+        const num = 3;
+        const result = getThreeRandomImages(movies, num);
+
+        expect(result.length).toBe(num);
+        result.forEach(movie => {
+            expect(movies).toContainEqual(movie);
+        });
+    });
+
+    test('returns an empty array if num is 0', () => {
+        const movies = [
+            { id: 1, title: 'Movie 1' },
+            { id: 2, title: 'Movie 2' },
+            { id: 3, title: 'Movie 3' }
+        ];
+
+        const num = 0;
+        const result = getThreeRandomImages(movies, num);
+
+        expect(result).toEqual([]);
+    });
+
+    test('returns all movies if num is greater than length of movies array', () => {
+        const movies = [
+            { id: 1, title: 'Movie 1' },
+            { id: 2, title: 'Movie 2' }
+        ];
+
+        const num = 5;
+        const result = getThreeRandomImages(movies, num);
+
+        expect(result.length).toBe(movies.length);
+        result.forEach(movie => {
+            expect(movies).toContainEqual(movie);
+        });
+    });
+});
+
+
+/**
+ * Testing for getting the 3 random images
+ * We are using jest-fetch-moch
+ */
+

@@ -32,6 +32,7 @@ const fetchRequests = async (request) => {
 
 /**
  * Get 3 random images to use in our carousel
+ * I used AI to generate this function. I was trying for over 2 hours and could not get the result
  */
 const getThreeRandomImages = (movies, num) => {
     let shuffled = movies.sort(() => 0.5 - Math.random());
@@ -294,4 +295,4 @@ $(document).ready(function () {
 });
 
 
-module.exports = { global, fetchRequests, getThreeRandomImages, getEndpoint }
+module.exports = { global, fetchRequests, getThreeRandomImages, getCarouselImages, getEndpoint }
