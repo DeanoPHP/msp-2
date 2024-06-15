@@ -156,4 +156,101 @@ describe('getThreeRandomImages', () => {
  * Testing for getting the 3 random images
  * We are using jest-fetch-moch
  */
+// jest.mock('../js/script', () => ({
+//     fetchRequests: jest.fn(),
+//     getThreeRandomImages: jest.requireActual('../js/script').getThreeRandomImages
+// }));
+
+// beforeAll(() => {
+//     global.$ = require('jquery');
+// });
+
+// describe('getCarouselImages', () => {
+//     beforeEach(() => {
+//         fetch.resetMocks();
+//         document.body.innerHTML = '<div class="carousel-inner"></div>';
+//     });
+
+//     test('fetches movies and appends three random images to the carousel', async () => {
+//         const mockMovies = {
+//             results: [
+//                 { id: 1, title: 'Movie 1', backdrop_path: '/path1', overview: 'Overview 1' },
+//                 { id: 2, title: 'Movie 2', backdrop_path: '/path2', overview: 'Overview 2' },
+//                 { id: 3, title: 'Movie 3', backdrop_path: '/path3', overview: 'Overview 3' },
+//                 { id: 4, title: 'Movie 4', backdrop_path: '/path4', overview: 'Overview 4' }
+//             ]
+//         };
+
+//         fetchRequests.mockResolvedValue(mockMovies);
+
+//         await getCarouselImages();
+
+//         expect(fetchRequests).toHaveBeenCalledWith('movie/upcoming');
+//         expect($('.carousel-inner').children().length).toBe(3);
+//         expect($('.carousel-inner').html()).toContain('Movie 1');
+//         expect($('.carousel-inner').html()).toContain('Movie 2');
+//         expect($('.carousel-inner').html()).toContain('Movie 3');
+//     });
+
+//     test('handles fetch error gracefully', async () => {
+//         const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+//         fetchRequests.mockRejectedValue(new Error('API is down'));
+
+//         await getCarouselImages();
+
+//         expect(consoleErrorSpy).toHaveBeenCalledWith('API is down');
+//         consoleErrorSpy.mockRestore();
+//     });
+// });
+
+/**
+ * Tests to see whether the getEndpoint function is working as expected
+ */
+describe('getEndpoint', () => {
+    let originalGlobal;
+
+    beforeAll(() => {
+        // Store the original global object to restore it later
+        originalGlobal = { ...global };
+    });
+
+    // afterEach(() => {
+    //     // Restore the original global object after each test
+    //     global = { ...originalGlobal };
+    // });
+
+    test('returns "movie/popular" if global.page is null', () => {
+        global.page = null;
+
+        const endpoint = getEndpoint();
+        expect(endpoint).toBe('movie/popular');
+    });
+
+    test('returns correct movie search endpoint if global.page is "movies"', () => {
+        global.page = 'movies';
+        global.params = 'test';
+
+        const endpoint = getEndpoint();
+        expect(endpoint).toBe('search/movie?query=test&include_adult=false&language=en-US&page=1');
+    });
+
+    test('returns correct tv search endpoint if global.page is "tv"', () => {
+        global.page = 'tv';
+        global.params = 'test';
+
+        const endpoint = getEndpoint();
+        expect(endpoint).toBe('search/tv?query=test&include_adult=false&language=en-US&page=1');
+    });
+
+    test('returns correct person search endpoint if global.page is neither null, "movies", nor "tv"', () => {
+        global.page = 'person';
+        global.params = 'test';
+
+        const endpoint = getEndpoint();
+        expect(endpoint).toBe('search/person?query=test&include_adult=false&language=en-US&page=1');
+    });
+});
+
+
 
