@@ -294,4 +294,4 @@ $(document).ready(function () {
 });
 
 
-// module.exports = { fetchRequest, getThreeRandomImages }
+module.exports = { global, fetchRequests, getThreeRandomImages, getEndpoint }
