@@ -1,7 +1,7 @@
 # ScreenQuest
 
 ![Responsive](assets/images/amIResponsive.png)
-[Click here to view the live website](https://deanophp.github.io/MSP-1/)
+[Click here to view the live website](https://deanophp.github.io/msp-2/)
 
 ## Overview
 Movie Explorer is an interactive web application that allows users to search and discover popular movies, TV shows, and actors/actresses. With a user-friendly interface, the application provides a seamless experience where users can click on any item to view detailed information about it. This includes descriptions, ratings, cast lists, and more.
@@ -32,24 +32,6 @@ This section outlines the user stories that guided the development of our projec
 
 - **Visually Appealing**
   - **Bootstrap Navbar with Hamburger Menu**: We utilized Bootstrap's responsive navbar component to ensure easy navigation across all device sizes. The hamburger menu on smaller screens allows for a clean and uncluttered interface while providing full navigation capability.
-
-  - **Hero Image**: A large, high-quality hero image greets users upon arrival, setting a welcoming and professional tone. This visual centerpiece captures attention and directly relates to the core theme of the website.
-
-  - **Large, Prominent Buttons**: To enhance user interaction, we designed large buttons that stand out against the background. These are strategically placed to guide users naturally through the workflow, increasing usability and accessibility.
- 
-  - **Modals for Interaction**: For interactions that require more detail, such as forms or additional information, we implemented modals. This keeps the user on the same page, reducing load times and maintaining context, which is particularly beneficial for mobile users.
-
-- **Contact Form**:
-We provide users with a convenient way to contact the gym through our easy-to-use contact form.  
-![Contact Form](assets/images/contact-form.png)
-
-- **Map of the Gym**:
-A Google Maps iframe is integrated to clearly show the gym's location, making it easier for users to find us.  
-![Gym Location](assets/images/map.png)
-
-- **Meet the Team**:
-We've introduced a section dedicated to our gym staff, allowing users to learn more about the team that makes our gym special.  
-![Gym Staff](assets/images/the-team.png)
 
 ## Future features
 - Login in and Register functionality
