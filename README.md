@@ -6,6 +6,8 @@
 ## Overview
 Movie Explorer is an interactive web application that allows users to search and discover popular movies, TV shows, and actors/actresses. With a user-friendly interface, the application provides a seamless experience where users can click on any item to view detailed information about it. This includes descriptions, ratings, cast lists, and more.
 
+This project connects to The Movie Database (TMDb) API to fetch and display recent movies, TV shows, and actor/actress information. 
+
 ## User Experience (UX)
 
 ## User Stories
@@ -17,26 +19,31 @@ This section outlines the user stories that guided the development of our projec
 3. **As a visitor** I want browse popular movies so I can discover new movies to watch.
 4. **As a visitor** I want browse popular tv shows so I can discover new tv shows to watch.
 5. **As a visitor** I want to browse actors or actresses
-6. **As a visitor** I want to be able to click on movie, tv show or actor/actress to get more details
+6. **As a visitor** I want to be able to click on movie, tv shows or actor/actress to get more details
 7. **As a visitor** I would like to use any of my devices to view the website.
 
-### As a gym owner 
-1. **As a gym owner**, I want to feature high-quality images and detailed descriptions of our movies, tv shows, and actors.
+### As the site owner
+1. **As the site owner**, I want to feature high-quality images and detailed descriptions of our movies, tv shows, and actors.
 
-2. **As a gym owner**, I want to display the data clearly.
+2. **As the site owner**, I want to display the data clearly.
 
-3. **As a gym owner**, I want to give the user clear navigation.
+3. **As the site owner**, I want to give the user clear navigation.
 
 ### As a returning user 
-1. **As a returning user**, I want to quickly 
+1. **As a returning user**, I want to be able to view saved favourite movies, tv shows, and actors.
 
 - **Visually Appealing**
   - **Bootstrap Navbar with Hamburger Menu**: We utilized Bootstrap's responsive navbar component to ensure easy navigation across all device sizes. The hamburger menu on smaller screens allows for a clean and uncluttered interface while providing full navigation capability.
 
+## Implementation of User Stories
+<!-- @todo Look at msp1 -->
+
 ## Future features
-- Login in and Register functionality
-- Let a logged in user leave a review
-- Let the user save their favourite movies, tv shows
+- Login in and Register functionality.
+- Let a logged in user leave a review.
+- Let the user save their favourite movies, tv shows.
+- Give the user the ability to check movies, and tv shows by genres
+- Give the user the abilty to choose between Dark/Light mode.
 
 ## Skeleton
 Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
@@ -53,7 +60,6 @@ mobile-first web pages.
 - JavaScript 
 - jQuery
 - themoviedb API
-- Animate.css - For visual effects
 - FontAwesome - For icons
 - Google Fonts - For fonts
 - Gitpod
@@ -62,7 +68,7 @@ mobile-first web pages.
 
 ## Design Overview
 
-Add some text here about the design 
+<!-- Add some text here about the design -->
 
 ### Color Palette
   - Gold: #C7A64A - Used for h1 tags and logo;
@@ -101,22 +107,6 @@ Anonymous Pro and Roboto make a highly functional pairing in digital design, com
 
 Here is an example of how to apply colours and fonts:
 
-```css
-:root {
-    --link-font-color: #fafafa;
-    --gold-color: #C7A64A;
-    --sub-heading-color: #5C501F;
-    --font-family-body: "Roboto", sans-serif;
-    --h1-font-family: "Anonymous Pro", sans-serif;
-}
-
-.navbar-brand {
-    font-family: var(--h1-font-family);
-    color: var(--gold-color);
-}
-```
-
-
 ## Assistance from AI
 During the development of this project, AI-powered tools were utilized to assist with including the design and implementation of a transparent navbar using Bootstrap. This assistance helped to optimize the solution and implement best practices in web development.
 
@@ -131,7 +121,59 @@ const getThreeRandomImages = (movies, num) => {
 ```
 
 ## Fix
-Document here any fixed I need
+### Initial Development
+
+Initially, the project contained multiple functions to handle different API requests:
+- `getMovies()`: Fetches recent movies.
+- `getTVShows()`: Fetches recent TV shows.
+- `getActors()`: Fetches actor/actress information.
+
+### Refactoring and Optimization
+
+To improve the code maintainability and reduce redundancy, these functions were consolidated into a single, more flexible function. This new function accepts parameters to determine the type of data to fetch, resulting in cleaner and more efficient code.
+
+### Unified Fetch Function
+
+The unified function can be used as follows:
+
+```javascript
+function fetchData(type) {
+    /**
+ * Display the fetched data
+ */
+const displayDataFetched = async () => {
+    try {
+        const results = await fetchRequests(getEndpoint());
+
+        $('.heading').html(`<h2>${global.type}</h2>`)
+        if (results.results.length > 0) {
+            results.results.forEach(item => {
+                $('.display-results').append(`
+                    <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                        <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${global.page !== 'actors' ? item.poster_path : item.profile_path}' class="d-block" alt='${item.original_title}'/><a>                                             
+                    </div>
+                `);
+            });
+        } else {
+            $('.display-results').html('<h2>No results found for popular movies</h2>')
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+const getEndpoint = () => {
+    if (global.page === null) {
+        return 'movie/popular';
+    } else if (global.page === 'movies') {
+        return `search/movie?query=${global.params}&include_adult=false&language=en-US&page=1`;
+    } else if (global.page === 'tv') {
+        return `search/tv?query=${global.params}&include_adult=false&language=en-US&page=1`;
+    } else {
+        return `search/person?query=${global.params}&include_adult=false&language=en-US&page=1`;
+    }
+}
+```
 
 ## Testing
 [w3c Markup Validation](https://validator.w3.org/)

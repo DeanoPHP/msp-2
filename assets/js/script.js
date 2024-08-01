@@ -161,7 +161,6 @@ const showDetails = async () => {
                 </div>
             `)
         }
-
         console.log(res)
     } catch (error) {
         console.log(error.message)
