@@ -9,8 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/',
-    // SITE_URL: '/',
+    // SITE_URL: 'https://deanophp.github.io/msp-2/',
+    SITE_URL: '/',
 }
 
 /**
@@ -72,6 +72,13 @@ const getCarouselImages = async () => {
 const displayDataFetched = async () => {
     try {
         const results = await fetchRequests(getEndpoint());
+
+        // Filtering the data from API to only get the data that has an image
+        const getDataWithImage = results.filter((data) => {
+            console.log(data)
+        })
+
+        console.log(getDataWithImage)
 
         $('.heading').html(`<h2>${global.type}</h2>`)
         if (results.results.length > 0) {
@@ -286,7 +293,7 @@ const init = () => {
             formSubmit();
             getEndpoint()
     }
-};
+}
 
 // Using jquery to load all code once the document is ready
 $(document).ready(function () {
