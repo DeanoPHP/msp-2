@@ -9,8 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/'
-    // SITE_URL: 'https://8000-deanophp-msp2-9jasrr6ll42.ws-us115.gitpod.io/'
+    // SITE_URL: 'https://deanophp.github.io/msp-2/'
+    SITE_URL: 'https://8000-deanophp-msp2-9jasrr6ll42.ws-us115.gitpod.io/'
 }
 
 /**
@@ -73,24 +73,24 @@ const displayDataFetched = async () => {
     try {
         const results = await fetchRequests(getEndpoint());
 
-        // Filtering the data from API to only get the data that has an image
-        const getDataWithImage = results.filter((data) => {
-            console.log(data)
-        })
-
-        console.log(getDataWithImage)
-
         $('.heading').html(`<h2>${global.type}</h2>`)
         if (results.results.length > 0) {
             results.results.forEach(item => {
-                $('.display-results').append(`
-                    <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                        <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${global.page !== 'actors' ? item.poster_path : item.profile_path}' class="d-block" alt='${item.original_title}'/><a>                                             
-                    </div>
-                `);
+
+                // Determine which path to use based on the content type
+                const imagePath = global.page !== 'actor' ? item.poster_path : item.profile_path
+
+                // Check whether the image being returned is null. If there is no image we will not display it
+                if (imagePath !== null) {
+                    $('.display-results').append(`
+                        <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
+                            <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${imagePath}' class="d-block" alt='${item.original_title}'/><a>                                             
+                        </div>
+                    `);
+                }
             });
         } else {
-            $('.display-results').html('<h2>No results found for popular movies</h2>')
+            $('.display-results').html('<h2>No results found</h2>')
         }
     } catch (error) {
         console.error(error.message);
