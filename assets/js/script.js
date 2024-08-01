@@ -67,13 +67,14 @@ const getCarouselImages = async () => {
 };
 
 /**
- * Display the fetched data
+ * Display the fetched data to the user 
  */
 const displayDataFetched = async () => {
     try {
         const results = await fetchRequests(getEndpoint());
 
-        $('.heading').html(`<h2>${global.type}</h2>`)
+        // Here I need to find a way to display correct title
+        // $('.heading').html(`<h2>${global.page}</h2>`)
         if (results.results.length > 0) {
             results.results.forEach(item => {
 
@@ -113,7 +114,7 @@ const getEndpoint = () => {
 }
 
 /**
- * display the selected movie, tv show, or actor for more information
+ * display the selected movie, tv show, or actor on the details page
  */
 const showDetails = async () => {
     try {
@@ -248,6 +249,7 @@ const formSubmit = () => {
             window.location.href = `${global.SITE_URL}?page=movies&params=${inputVal}`
         } else if (type === 'tv') {
             window.location.href = `${global.SITE_URL}?page=tv&params=${inputVal}`
+            global.type === 'Your done'
         } else if (type === 'people') {
             window.location.href = `${global.SITE_URL}?page=actors&params=${inputVal}`
         }
@@ -298,6 +300,7 @@ const init = () => {
 // Using jquery to load all code once the document is ready
 $(document).ready(function () {
     init();
+    console.log(global.type)
 });
 
 
