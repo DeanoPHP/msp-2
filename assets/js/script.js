@@ -9,8 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/'
-    // SITE_URL: 'https://8000-deanophp-msp2-9jasrr6ll42.ws-us115.gitpod.io/'
+    // SITE_URL: 'https://deanophp.github.io/msp-2/'
+    SITE_URL: '/'
 }
 
 /**
@@ -237,24 +237,35 @@ const catagoryInput = () => {
  * ?page=nameofpage&params=whateverisintheinput 
  */
 const formSubmit = () => {
-    $('#submitButton').on('click', async (e) => {
-        e.preventDefault()
+    // Function to handle the form submission logic
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        const type = global.type.split(' ')[1].toLowerCase()
-        const inputVal = document.getElementById('nameInput').value
+        const type = global.type.split(' ')[1].toLowerCase();
+        const inputVal = document.getElementById('nameInput').value;
 
         if (type === 'popular') {
-            window.location.href = `${global.SITE_URL}`
+            window.location.href = `${global.SITE_URL}`;
         } else if (type === 'movie') {
-            window.location.href = `${global.SITE_URL}?page=movies&params=${inputVal}`
+            window.location.href = `${global.SITE_URL}?page=movies&params=${inputVal}`;
         } else if (type === 'tv') {
-            window.location.href = `${global.SITE_URL}?page=tv&params=${inputVal}`
-            global.type === 'Your done'
+            window.location.href = `${global.SITE_URL}?page=tv&params=${inputVal}`;
+            global.type === 'Your done';
         } else if (type === 'people') {
-            window.location.href = `${global.SITE_URL}?page=actors&params=${inputVal}`
+            window.location.href = `${global.SITE_URL}?page=actors&params=${inputVal}`;
         }
-    })
-}
+    };
+
+    // Event listener for the submit button click
+    $('#submitButton').on('click', handleSubmit);
+
+    // Event listener for the Enter key press on the input field
+    $('#nameInput').on('keydown', (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit(e);
+        }
+    });
+};
 
 /**
  * Initialize all functions withing a page when on a specific page
