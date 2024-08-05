@@ -73,13 +73,15 @@ const displayDataFetched = async () => {
     try {
         const results = await fetchRequests(getEndpoint());
 
+        console.log(results)
+
         // Here I need to find a way to display correct title
         // $('.heading').html(`<h2>${global.page}</h2>`)
         if (results.results.length > 0) {
             results.results.forEach(item => {
 
                 // Determine which path to use based on the content type
-                const imagePath = global.page !== 'actor' ? item.poster_path : item.profile_path
+                const imagePath = global.page !== 'actors' ? item.poster_path : item.profile_path
 
                 // Check whether the image being returned is null. If there is no image we will not display it
                 if (imagePath !== null) {
@@ -127,7 +129,7 @@ const showDetails = async () => {
                         <div class="col-sm-12 col-md-6">
                             <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
                         </div>
-                        <div class="col-sm-12 col-md-6 p-3">
+                        <div class="col-sm-12 col-md-6 p-3 height-600">
                             <h1>${res.title}</h1>
                             <p>${res.overview}</p> 
                             <p>Release date: ${res.release_date}</p>
@@ -143,7 +145,7 @@ const showDetails = async () => {
                         <div class="col-sm-12 col-md-6">
                             <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
                         </div>
-                        <div class="col-sm-12 col-md-6 p-3">
+                        <div class="col-sm-12 col-md-6 p-3 height-600">
                             <h1>${res.name}</h1>
                             <p>${res.overview}</p> 
                             <p>Release date: ${res.release_date}</p>
@@ -159,8 +161,8 @@ const showDetails = async () => {
                         <div class="col-sm-12 col-md-6">
                             <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.profile_path}" alt="screen details">
                         </div>
-                        <div class="col-sm-12 col-md-6 p-3">
-                            <h1>${res.name}</h1>
+                        <div class="col-sm-12 col-md-6 p-3 height-600">
+                            <h1 style="color:${res.gender === 1 ? 'pink' : 'blue'}">${res.name}</h1>
                             <p>${res.biography}</p> 
                             <p>Birthday: ${res.birthday}</p>
                             <a href="${res.homepage}" target="_blank">Visit Website</a>
