@@ -176,7 +176,7 @@ const showDetails = async () => {
         console.log(error.message)
     }
 }
-
+   
 /**
  * This function simply displays the form using a click event
  */

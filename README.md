@@ -49,9 +49,17 @@ This section outlines the user stories that guided the development of our projec
 Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
 <br><br>
 
-| Desktop                                   | Tablet                                  | Mobile                                  |
-| ----------------------------------------- | --------------------------------------- | --------------------------------------- |
-| ![Desktop](assets/wireframes/desktop.png) | ![Tablet](assets/wireframes/tablet.png) | ![Mobile](assets/wireframes/mobile.png) |
+### Home page
+--------------
+| Desktop and tablet| Mobile|
+|:------------------|:------|
+| ![Desktop](assets/images/Home-desktop.png) | ![Mobile](assets/images/Home-mobile.png) |
+
+### Details page
+----------------
+| Desktop and tablet| Mobile|
+|:------------------|:------|
+| ![Desktop](assets/images/details-desktop.png) | ![Mobile](assets/images/details-mobile.png) |
 
 ## Technologies and Tools
 - HTML/CSS - For stucturing and design
