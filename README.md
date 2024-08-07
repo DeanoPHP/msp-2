@@ -226,7 +226,7 @@ const getEndpoint = () => {
 index.html
 ![index.html](./assets/images/testing/index.png)
 
-form-submitted.html
+details.html
 ![form-submitted.html](./assets/images/testing/form-submitted.png)
 
 style.css
