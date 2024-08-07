@@ -251,6 +251,7 @@ Lighthouse report
 | Test Actor/Actress Search | When searching for a Actor or Actress, the user should be presented with a list related to the search term.| Pass | 
 | Test API Info | When searching for a Movie, TV show, or Actor/Actress I expect the correct information to be returned relating to the users search. | Pass |
 | Test details page info | When I click on a spacific movie, tv show etc I expect to be taken to the details.html page and presented with information regarding the the selected movie, tv show, or actor/actress. | Pass |
+| Test Form Disappears| When clicking outside of the search form it should fade out and the page blur should also disappear. | Pass |
 
 ## Deployment
 <hr>
