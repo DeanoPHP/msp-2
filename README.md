@@ -242,7 +242,7 @@ style.css
 | Test TV Search | When searching for a TV program, the user should be presented with a list of TV shows related to the search term. | Pass |
 | Test Actor/Actress Search | When searching for a Actor or Actress, the user should be presented with a list related to the search term.| Pass | 
 | Test API Info | When searching for a Movie, TV show, or Actor/Actress I expect the correct information to be returned relating to the users search. | Pass |
-| Test details page info | When I click on a spacific movie, tv show etc I expect to be taken to the details.html page and presented with information regarding the the selected movie, tv show, or actor/actress. |
+| Test details page info | When I click on a spacific movie, tv show etc I expect to be taken to the details.html page and presented with information regarding the the selected movie, tv show, or actor/actress. | Pass |
 
 ## Lighthouse report
 <hr>
