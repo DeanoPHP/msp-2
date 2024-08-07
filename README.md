@@ -50,6 +50,8 @@ This section outlines the user stories that guided the development of our projec
 - Give the user the ability to check movies, and tv shows by genres
 - Give the user the abilty to choose between Dark/Light mode.
 
+## User Stories Implentation  
+
 ## Skeleton
 Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
 <br><br>
@@ -232,6 +234,12 @@ details.html
 style.css
 ![style.css](./assets/images/validate-css.png)
 
+Lighthouse report 
+<!-- todo -->
+
+### Testing With Jest
+<!-- todo -->
+
 ## Functional Testing
 | Action | Expected Behaviour | Pass/Fail |
 | ------ | ------------------ | --------- | 
@@ -243,9 +251,6 @@ style.css
 | Test Actor/Actress Search | When searching for a Actor or Actress, the user should be presented with a list related to the search term.| Pass | 
 | Test API Info | When searching for a Movie, TV show, or Actor/Actress I expect the correct information to be returned relating to the users search. | Pass |
 | Test details page info | When I click on a spacific movie, tv show etc I expect to be taken to the details.html page and presented with information regarding the the selected movie, tv show, or actor/actress. | Pass |
-
-## Lighthouse report
-<hr>
 
 ## Deployment
 <hr>
