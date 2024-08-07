@@ -80,6 +80,42 @@ Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
 
 ## Design Overview
 
+### Navbar
+- **Style**: Simple grey background.
+- **Content**:
+  - Brand text in red.
+  - Font Awesome search icon (`fas fa-search`).
+- **Behavior**: Clicking the search icon triggers a jQuery animation that reveals a search form and blurs the background.
+
+### Carousel
+- **Position**: Directly below the navbar.
+- **Content**: Displays three random movies from TMDB API.
+- **Implementation**: Uses Bootstrap's carousel component.
+
+### Main Content Area
+- **Style**: White background.
+- **Content**: Movie posters fetched from the TMDB API.
+- **Functionality**: Dynamically updates with movie data from the API.
+
+### Footer
+- **Style**: Black background.
+- **Content**:
+  - © 2024 ScreenQuest. All rights reserved.
+  - Powered by The Movie Database (TMDB).
+
+### Search Functionality
+- **Trigger**: Font Awesome search icon in the navbar.
+- **Form Elements**:
+  - Single input field for the search term.
+  - Large red button matching the brand color.
+  - Select options for choosing between movie, TV show, or actor/actress search.
+- **Behavior**:
+  - When the search icon is clicked, the form fades in.
+  - Background blurs to focus on the form.
+  - Additional input field fades in based on the selected search option.
+
+
+
 ### Font Choices
 ScreenQuest utilizes a carefully selected combination of fonts to create a visually appealing and cohesive design. The fonts used are:
 
