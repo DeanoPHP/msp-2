@@ -236,19 +236,13 @@ style.css
 | Action | Expected Behaviour | Pass/Fail |
 | ------ | ------------------ | --------- | 
 | Initial page load | I expect the browser to load my website and be on the index section | Pass |
-| Home link | The browser should navigate to and display the 'Home' section. | Pass |
-| About link | The browser should navigate to and display the 'About' section. | Pass |
-| The Gym link | The browser should navigate to and display the 'Gym' section. | Pass |
-| Team link | The browser should navigate to and display the 'Team' section. | Pass |
-| Contact link | The browser should navigate to and display the 'Contact' section. | Pass | 
-| Test for hero section Button | Upon clicking the button, the Bootstrap modal should be displayed, including all its content and with the correct styling. | Pass |
-| Test for team section Button | Upon clicking the button, the Bootstrap modal should be displayed, including all its content and with the correct styling. | Pass |
-| Test for Contact Section Button | Implemented functionality test to verify that clicking the button in the contact section redirects to the "form-submitted.html" page when all form inputs are filled out as expected. | Pass |
-| Test Full Name required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
-| Test Email required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
-| Test Tel required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
-| Test Message required | Implemented functionality to verify whether form would submit if the input field is empty | Pass | 
-| Implement Iframe map functionality | Added functionality test to ensure that the iframe map in the contact section functions correctly, displaying the map as expected and allowing interaction with it. | Pass |
+| Test Search Icon | The page should blur and the form should fade in | Pass |
+| Test Select Option | When clicking the options and selecting either Movie, TV, or Actor another input field should fade in | Pass |
+| Test Movie Search | When searching for a Movie, the user should be presented with a list of movies related to the search term. | Pass |
+| Test TV Search | When searching for a TV program, the user should be presented with a list of TV shows related to the search term. | Pass |
+| Test Actor/Actress Search | When searching for a Actor or Actress, the user should be presented with a list related to the search term.| Pass | 
+| Test API Info | When searching for a Movie, TV show, or Actor/Actress I expect the correct information to be returned relating to the users search. | Pass |
+| Test details page info | When I click on a spacific movie, tv show etc I expect to be taken to the details.html page and presented with information regarding the the selected movie, tv show, or actor/actress. |
 
 ## Lighthouse report
 <hr>
