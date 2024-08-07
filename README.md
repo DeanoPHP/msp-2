@@ -4,9 +4,7 @@
 [Click here to view the live website](https://deanophp.github.io/msp-2/)
 
 ## Overview
-Movie Explorer is an interactive web application that allows users to search and discover popular movies, TV shows, and actors/actresses. With a user-friendly interface, the application provides a seamless experience where users can click on any item to view detailed information about it. This includes descriptions, ratings, cast lists, and more.
-
-This project connects to The Movie Database (TMDb) API to fetch and display recent movies, TV shows, and actor/actress information. 
+ScreenQuest is a dynamic and visually clean movie website that leverages The Movie Database (TMDB) API to display movie information. This document provides an overview of the website's structure, functionality, and design elements.
 
 ## User Experience (UX)
 
@@ -38,6 +36,13 @@ This section outlines the user stories that guided the development of our projec
 ## Implementation of User Stories
 <!-- @todo Look at msp1 -->
 
+## Features
+- Responsive Navbar: A simple grey Bootstrap navbar featuring a red brand text with a Font Awesome search icon.
+- Carousel: Below the navbar, a carousel displays three random movies from the TMDB API.
+- Main Content Area: Displays movie posters fetched from the TMDB API, set against a white background.
+- Footer: A black footer containing copyright information and attribution to TMDB.
+- Search Functionality: A search icon that, when clicked, reveals a search form with options to search by movie, TV show, or actor/actress, while blurring the background for focused interaction.
+
 ## Future features
 - Login in and Register functionality.
 - Let a logged in user leave a review.
@@ -62,58 +67,54 @@ Wireframes were designed using [Balsamiq](https://balsamiq.cloud/#)
 | ![Desktop](assets/images/details-desktop.png) | ![Mobile](assets/images/details-mobile.png) |
 
 ## Technologies and Tools
-- HTML/CSS - For stucturing and design
-- Bootstrap - Framework for designing responsive and 
-mobile-first web pages.
-- JavaScript 
-- jQuery
-- themoviedb API
-- FontAwesome - For icons
-- Google Fonts - For fonts
-- Gitpod
-- Github
-- Visual Studio
+- **HTML5 & CSS3**: For the basic structure and styling of the website.
+- **Bootstrap**: For responsive design and layout components.
+- **JavaScript & jQuery**: For dynamic content and interactivity.
+- **jQuery**: For implementing the search form and animations.
+- **TMDB API**: For fetching movie data.
+- **Font Awesome**: For the search icon.
+- **Google Fonts**: - For fonts
+- **Gitpod**
+- **Github**
+- **Visual Studio**
 
 ## Design Overview
 
-<!-- Add some text here about the design -->
+### Font Choices
+ScreenQuest utilizes a carefully selected combination of fonts to create a visually appealing and cohesive design. The fonts used are:
 
-### Color Palette
-  - Gold: #C7A64A - Used for h1 tags and logo;
-  - Dark shade of yellow-green #5C501F - Used for sub-headings;
-  - Light grey: #fafafa - Used for links;
-  - very light grey: #eeeeee - used for body;
+1. **Edu AU VIC WA NT Hand**
+2. **Poppins**
 
-### Font Usage
-Our project utilizes a combination of FontAwesome, Roboto, and Anonymous Pro to ensure clear readability, aesthetic appeal, and functional design across all elements of our website.
+### Edu AU VIC WA NT Hand
+Edu AU VIC WA NT Hand is a playful and casual handwritten font. It is part of the Google Fonts library and is designed to evoke a sense of friendliness and approachability. 
 
-### Fonts Details
-- **Google Fonts**: Used primarily for icons across the website. FontAwesome provides scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
+**Why Use Edu AU VIC WA NT Hand?**
+- **Playful and Casual**: This font brings a personal, handwritten touch that makes the website feel more welcoming and engaging.
+- **Versatile Weight Range**: Available in multiple weights from 400 to 700, it can be used for both subtle and prominent text elements, adding a dynamic feel to the design.
+- **Human Touch**: The handwritten style can make certain elements of the website, such as headings or call-to-action buttons, feel more personal and unique.
 
-- **Roboto**: This is the primary typeface used for text elements on the website. Designed for readability, Roboto offers a modern, neutral look with a wide range of weights and styles.
+### Poppins
+Poppins is a geometric sans-serif typeface that is both modern and highly legible. It features a clean and contemporary look, making it suitable for a wide range of applications.
 
-- **Anonymous Pro**: Employed mainly in code snippets and data displays, Anonymous Pro is a monospace font that offers excellent clarity and readability in technical sections of the website.
+**Why Use Poppins?**
+- **Clarity and Readability**: Poppins is known for its clear and easy-to-read letterforms, making it an excellent choice for body text and user interface elements.
+- **Geometric Precision**: The font's geometric shapes provide a modern and professional appearance, complementing the playful nature of Edu AU VIC WA NT Hand.
+- **Broad Range of Weights and Styles**: Poppins offers a comprehensive range of weights and styles, allowing for flexibility in design and the creation of a well-structured visual hierarchy.
 
-### Font Integration
-To integrate and use these fonts in your development environment, follow these steps:
+### Why They Work Well Together
+The combination of Edu AU VIC WA NT Hand and Poppins strikes a balance between casual friendliness and modern professionalism. This pairing leverages the strengths of both fonts to create a harmonious and engaging user experience:
 
-- **fonts.google.com**:
-  ```css
-    /* Importing Roboto font with all weights and styles */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-    /* Importing Anonymous Pro font with specific weights and styles */
-    @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-- [Link for Roboto](https://fonts.google.com/?query=roboto)
-- [Link for Anonymous Pro](https://fonts.google.com/?query=anonymous+pro)
-
-
-Anonymous Pro and Roboto make a highly functional pairing in digital design, combining clarity with versatility. Anonymous Pro, a monospaced font, offers exceptional readability for code snippets and data, ensuring that each character is distinctly spaced and easy to differentiate. This makes it ideal for technical contexts where precision in text presentation is crucial. Roboto, on the other hand, is a sans-serif font known for its clean lines and friendly appearance, making it suitable for more general text such as paragraphs, headings, and user interfaces. Together, these fonts provide a balanced aesthetic: Roboto enhances the visual appeal and ease of reading for narrative text, while Anonymous Pro ensures technical sections are approachable and clear. This combination is particularly effective in environments like technical blogs, programming interfaces, or any application where text clarity and user comfort are paramount.
+- **Contrast and Complement**: Edu AU VIC WA NT Hand's casual, handwritten style contrasts nicely with Poppins' clean, geometric shapes, creating a visually interesting and balanced design.
+- **Enhanced User Experience**: The clear readability of Poppins ensures that users can easily consume content, while Edu AU VIC WA NT Hand adds personality and emphasis to headings and key elements.
+- **Consistent Visual Hierarchy**: Using Poppins for body text and interface elements and Edu AU VIC WA NT Hand for headings and special features establishes a clear and consistent visual hierarchy, guiding users naturally through the content.
 
 ### Implementation
+To implement these fonts, you can use Google Fonts for easy integration:
 
-Here is an example of how to apply colours and fonts:
+```h
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+```
 
 ## Assistance from AI
 During the development of this project, AI-powered tools were utilized to assist with including the design and implementation of a transparent navbar using Bootstrap. This assistance helped to optimize the solution and implement best practices in web development.
@@ -298,7 +299,7 @@ Your website should now be live on GitHub Pages. You can access it via the URL p
 <hr>
 I would like to express my heartfelt gratitude to my mentor for his invaluable guidance and advice throughout this project. 
 
-Additionally, I extend my sincere thanks to my tutors, especially Miguel Ortega Legorreta, for their exceptional teaching and encouragement. Your dedication and expertise have greatly contributed to my learning journey.
+Additionally, I extend my sincere thanks all my tutors for their exceptional teaching and encouragement. Your dedication and expertise have greatly contributed to my learning journey, Thank you.
 
 
 
