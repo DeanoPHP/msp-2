@@ -224,13 +224,13 @@ const getEndpoint = () => {
 [w3c Markup Validation](https://validator.w3.org/)
 
 index.html
-![index.html](./assets/images/testing/index.png)
+![index.html](./assets/images/validate-index.png)
 
 details.html
-![form-submitted.html](./assets/images/testing/form-submitted.png)
+![details.html](./assets/images/validate-details.png)
 
 style.css
-![style.css](./assets/images/testing/css.png)
+![style.css](./assets/images/validate-css.png)
 
 ## Functional Testing
 | Action | Expected Behaviour | Pass/Fail |
