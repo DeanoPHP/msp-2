@@ -53,7 +53,27 @@ h2 {
 }
 
 .carousel-item img {
-    height: 400px;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF; 
+    position: absolute;
+    top: 60%;
+    height: 180px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5 {
+    font-family: var(--h1);
+}
+
+.carousel-caption p {
+    font-family: var(--p);
 }
 
 /* -------------------------------------------Style for displaying results */
