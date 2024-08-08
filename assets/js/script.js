@@ -9,10 +9,10 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/'
-    // SITE_URL: '/'
+    // SITE_URL: 'https://deanophp.github.io/msp-2/'
+    SITE_URL: '/'
 }
-
+    
 /**
  * This function will fetch data from the moviedb API
  */
@@ -72,8 +72,6 @@ const getCarouselImages = async () => {
 const displayDataFetched = async () => {
     try {
         const results = await fetchRequests(getEndpoint());
-
-        console.log(results)
 
         // Here I need to find a way to display correct title
         // $('.heading').html(`<h2>${global.page}</h2>`)
@@ -171,7 +169,6 @@ const showDetails = async () => {
                 </div>
             `)
         }
-        console.log(res)
     } catch (error) {
         console.log(error.message)
     }
@@ -313,7 +310,6 @@ const init = () => {
 // Using jquery to load all code once the document is ready
 $(document).ready(function () {
     init();
-    console.log(global.type)
 });
 
 

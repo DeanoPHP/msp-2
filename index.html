@@ -3,6 +3,10 @@
 
     <head>
         <meta charset="UTF-8">
+        <meta name="description" content="Explore a vast collection of movies, TV shows, and celebrity profiles with up-to-date details and reviews. Powered by The MovieDB, we bring you the latest in entertainment from around the globe. Dive in and discover your next favorite movie or show today!">
+        <meta name="keywords" content="movies, TV shows, film database, actor profiles, movie reviews, latest movies, watch movies, top TV shows, celebrity news, MovieDB, entertainment news">
+        <meta name="author" content="Dean Lark">
+        <meta name="robots" content="index, follow">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MSP-2 practise</title>
@@ -22,13 +26,13 @@
                     <a class="navbar-brand" href="#">ScreenQuest</a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-search" aria-hidden="true"></i>
                 </div>
             </nav>
 
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <!-- Content added dynamicly -->
+                    <!-- Content is dynamicly loading from themoviedb API -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
                     data-bs-slide="prev">
@@ -43,7 +47,7 @@
             </div>
 
             <section id="searchApiForm">
-                <form id="search-form">
+                <form id="search-form" aria-label="Search Movies, TV Shows, and Actors">
                     <h2 style="color: white;">Search Movies, TV shows, and Actors</h2>
                     <label for="mySelect">What you looking for?</label>
                     <div class="input-group mb-3">
@@ -56,10 +60,10 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <input type="text" name="nameInput" id="nameInput" placeholder="Choose an option">
+                        <input type="text" name="nameInput" id="nameInput" placeholder="Choose an option" aria-label="Search input">
                     </div>
 
-                    <button class="btn btn-danger btn-lg" type="button" id="submitButton">Search</button>
+                    <button class="btn btn-danger btn-lg" type="button" id="submitButton" aria-label="Submit search">Search</button>
                 </form>
             </section>
 
