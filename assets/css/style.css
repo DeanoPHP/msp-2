@@ -37,6 +37,7 @@ h2 {
     letter-spacing: 10px;
     color: red;
     font-weight: bolder;
+    font-family: var(--h1);
 }
 
 .navbar-nav li {
