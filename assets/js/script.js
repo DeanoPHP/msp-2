@@ -53,7 +53,7 @@ const getCarouselImages = async () => {
             let movieItem = `
                 <div class="carousel-item ${isActive}">
                     <a href='details.html?page=details&id=${movie.id}&category=movie'>
-                        <img class="d-block lazyload" data-src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}">
+                        <img class="d-block" src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}">
                     </a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>${movie.title}</h5>
