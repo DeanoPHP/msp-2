@@ -53,7 +53,7 @@ const getCarouselImages = async () => {
             let movieItem = `
                 <div class="carousel-item ${isActive}">
                     <a href='details.html?page=details&id=${movie.id}&category=movie'>
-                        <img class="d-block" src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}">
+                        <img class="d-block" src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}" loading="lazy">
                     </a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>${movie.title}</h5>
@@ -87,7 +87,9 @@ const displayDataFetched = async () => {
                 if (imagePath !== null) {
                     $('.display-results').append(`
                         <div class='col-sm-12 col-md-4 d-flex justify-content-center align-items-center'>
-                            <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'><img src='https://image.tmdb.org/t/p/w1280/${imagePath}' class="d-block" alt='${item.original_title}'/><a>                                             
+                            <a href='details.html?page=details&id=${item.id}&category=${global.page === null || global.page === 'movies' ? 'movie' : global.page === 'tv' ? 'tv' : 'person'}'>
+                                <img src='https://image.tmdb.org/t/p/w1280/${imagePath}' class="d-block" alt='${item.original_title}' loading="lazy" />
+                            <a>                                             
                         </div>
                     `);
                 }
@@ -127,7 +129,7 @@ const showDetails = async () => {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details" loading="lazy" >
                         </div>
                         <div class="col-sm-12 col-md-6 p-3 height-600">
                             <h1>${res.title}</h1>
@@ -143,7 +145,7 @@ const showDetails = async () => {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.poster_path}" alt="screen details" loading="lazy">
                         </div>
                         <div class="col-sm-12 col-md-6 p-3 height-600">
                             <h1>${res.name}</h1>
@@ -159,7 +161,7 @@ const showDetails = async () => {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.profile_path}" alt="screen details">
+                            <img class="details-image" src="https://image.tmdb.org/t/p/w1280/${res.profile_path}" alt="screen details" loading="lazy">
                         </div>
                         <div class="col-sm-12 col-md-6 p-3 height-600">
                             <h1 style="color:${res.gender === 1 ? 'pink' : 'blue'}">${res.name}</h1>
