@@ -9,8 +9,8 @@ const global = {
     id: new URLSearchParams(window.location.search).get('id'),
     category: new URLSearchParams(window.location.search).get('category'),
     type: '',
-    SITE_URL: 'https://deanophp.github.io/msp-2/'
-    // SITE_URL: '/'
+    // SITE_URL: 'https://deanophp.github.io/msp-2/'
+    SITE_URL: '/'
 }
     
 /**
@@ -52,7 +52,9 @@ const getCarouselImages = async () => {
             let isActive = index === 0 ? 'active' : '';
             let movieItem = `
                 <div class="carousel-item ${isActive}">
-                    <a href='details.html?page=details&id=${movie.id}&category=movie'><img class="d-block" src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}"></a>
+                    <a href='details.html?page=details&id=${movie.id}&category=movie'>
+                        <img class="d-block lazyload" data-src="https://image.tmdb.org/t/p/w1280${movie.backdrop_path}" alt="${movie.title}">
+                    </a>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>${movie.title}</h5>
                         <p>${movie.overview}</p>
